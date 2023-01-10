@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-
 /** @type {import('webpack').Configuration} */
 module.exports = {
   mode: "development",
@@ -35,13 +34,24 @@ module.exports = {
     rules: [
       {
         test: /\.s?[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
         // exclude: [/node_modules/],
       },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
@@ -50,6 +60,6 @@ module.exports = {
       favicon: false,
       template: "./src/index.html",
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
   ],
 };
