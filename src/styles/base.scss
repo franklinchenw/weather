@@ -1,21 +1,23 @@
+@import "./variables.scss";
 
-.container {
+.weather-container {
   margin: 20px;
 }
-hr {
-  margin: 0px;
-  border-top: 2px solid rgba(0, 0, 0, 0.1)
-}
 .header {
+  height: 50px;
   max-width: 800px;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 20px;
   border-color: #a9a9a9;
   font-weight: bold;
   border: 2px solid #b1b5c4;
-  border-bottom: 1px solid #b1b5c4;
+  border-bottom: none;
   align-items: center;
+  font-size: 20px;
+  position: relative;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
+    0 2px 8px hsla(0, 0%, 0%, 0.05);
 }
 .body {
   display: flex;
@@ -25,30 +27,159 @@ hr {
   border-color: #ffffff;
   border: 2px solid #b1b5c4;
   border-top: none;
+  min-height: 400px;
 }
-.card { 
+.card {
   font-size: 16px;
-  div {
-    padding: 10px;
-  }
+  // div {
+  //   padding: 10px;
+  // }
   background-color: white;
   border-radius: 7px;
   box-shadow: 0px 0px 4px 0px grey;
+  margin: 3px;
 }
-.card-title {
+.card-title,.weather-card-title {
   margin-bottom: 0px;
   border-bottom: 1px solid #b1b5c4;
   font-size: 14px;
   font-weight: 600;
+  color: #595050;
+  padding: 10px;
 }
 .favorite-location-card {
+  max-height: 375px;
   margin-right: 10px;
   min-width: 250px;
 }
 .favorite-list {
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
+  overflow-y: scroll;
+}
+.favorite-list-item {
+  color: #595050;
+  align-items: center;
+  border-bottom: 1px solid #e9ebf1;
+  font-size: 13px;
+  padding: 10px;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.28) 2px 2px 10px;
+  }
+  .icon {
+    margin-right: 20px;
+    max-width: 35px;
+  }
+  &.active {
+    background: rgba(208, 239, 255, 0.992);
+    img {
+      mix-blend-mode: multiply;
+    }
+  }
 }
 .weather-details-card {
-  margin-left: 10px; 
+  margin-left: 10px;
   width: 100%;
+}
+.details-card {
+  padding: 10px;
+}
+.weather-highlight-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.highlight-row-icon {
+  max-width: 100px;
+  margin-right: 30px;
+}
+.weather-highlight-row-current-temp {
+  font-size: 50px;
+  font-weight: 300;
+  color: #908282;
+}
+.weather-highlight-row-current-desc {
+  font-size: 20px;
+  font-weight: 400;
+  color: #908282;
+}
+.card.text-center {
+  min-width: 150px;
+  min-height: 150px;
+}
+.weather-scrollable-row {
+  display: flex;
+  overflow-x: scroll;
+  padding: 5px;
+}
+.card-text {
+  padding: 20px;
+}
+
+@media only screen and (max-width: $screen-md-min) {
+  .weather-container {
+    margin: 0px;
+  }
+  .header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    border: none;
+  }
+  .body {
+    position: relative;
+    top: 50px;
+    padding: 0px;
+    border: none;
+    flex-direction: column-reverse;
+  }
+  .weather-details-card {
+    margin-left: 0px;
+    box-shadow: none;
+  }
+  .card {
+    border: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .weather-card-title {
+    border: 0px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #908282;
+    text-align: center;
+  }
+  .weather-highlight-row{
+    flex-direction: column;
+    .highlight-row-icon{
+      margin-right: 0px;
+    }
+  }
+  .favorite-sub-title {
+    text-align: left;
+    font-size: 20px;
+    border-bottom: 1px solid #b1b5c4;
+  }
+  .favorite-location-card {
+    margin: 0px;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+// for iOS macOS
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 3px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }

@@ -256,5 +256,8 @@
       // 0 4px 4px rgba(black, 0.4) // Switch shadow on hover/focus
     ); 
     width: 80px;
+    label {
+      margin-bottom: 0px;
+    }
   }
 }

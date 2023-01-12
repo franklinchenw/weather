@@ -1,26 +1,26 @@
-import { FunctionComponent, useState } from "react";
+import { TEMP_SIGNS } from "../../constants/types";
 import { SwitchToggle } from "../atoms/SwitchToggle";
 
 interface IHeaderProps {
   title: string;
-  toggle: boolean;
-  test: any;
+  switchOn: (checked: boolean) => void;
 }
 
-export const HeaderRow: FunctionComponent<IHeaderProps> = ({
+export const HeaderRow: React.FunctionComponent<IHeaderProps> = ({
   title,
-  toggle,
-  test,
+  switchOn,
 }) => {
-  const [switchOn, setSwitchOn] = useState(true);
-
   const toggleOn = (checked: boolean) => {
-    setSwitchOn(checked);
+    switchOn(checked);
   };
   return (
     <div className="header">
       <div>{title}</div>
-      <SwitchToggle on={"°C"} off={"°F"} toggleOn={toggleOn} />
+      <SwitchToggle
+        on={TEMP_SIGNS.METRIC}
+        off={TEMP_SIGNS.IMPERIAL}
+        toggleOn={toggleOn}
+      />
     </div>
   );
 };

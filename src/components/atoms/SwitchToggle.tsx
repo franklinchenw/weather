@@ -29,7 +29,6 @@ export const SwitchToggle: FunctionComponent<ISwitchToggleProps> = ({
           className="can-toggle__switch"
           data-checked={on}
           data-unchecked={off}
-          // onClick={toggleOn}
         ></div>
       </label>
     </div>
