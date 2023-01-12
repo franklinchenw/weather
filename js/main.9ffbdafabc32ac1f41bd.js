@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var config = {
   OpenWeatherApi: {
-    apiUrl: "http://api.openweathermap.org/data/2.5",
+    apiUrl: "https://api.openweathermap.org/data/2.5",
     apiKey: "d11d34b38d013ce1fc908bcc04a87e6b"
   }
 };
@@ -499,10 +499,8 @@ var Weather = function Weather() {
     } else {
       setUnit(_constants_types__WEBPACK_IMPORTED_MODULE_6__.UNIT_TYPES.IMPERIAL);
     }
-    console.log(checked);
   };
   var selectLocation = function selectLocation(location) {
-    console.log(location);
     setSelectedLocation(location);
   };
   var updateDefaultLocationIcon = function updateDefaultLocationIcon(data) {
@@ -529,14 +527,13 @@ var Weather = function Weather() {
             data = _context.sent;
             setWeatherData(data.data);
             updateDefaultLocationIcon(data.data);
-            _context.next = 12;
+            _context.next = 11;
             break;
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](0);
-            console.warn(_context.t0);
             throw _context.t0;
-          case 12:
+          case 11:
           case "end":
             return _context.stop();
         }
@@ -1448,4 +1445,4 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.27721cd080758b026235.js.map
+//# sourceMappingURL=main.9ffbdafabc32ac1f41bd.js.map
