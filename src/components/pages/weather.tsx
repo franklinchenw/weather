@@ -38,11 +38,9 @@ export const Weather = () => {
     } else {
       setUnit(UNIT_TYPES.IMPERIAL as UNIT_TYPE);
     }
-    console.log(checked);
   };
 
   const selectLocation = (location: string) => {
-    console.log(location);
     setSelectedLocation(location);
   };
 
@@ -67,7 +65,6 @@ export const Weather = () => {
       setWeatherData(data.data);
       updateDefaultLocationIcon(data.data);
     } catch (err) {
-      console.warn(err);
       throw err;
     }
   };
