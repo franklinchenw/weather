@@ -3,7 +3,7 @@ import { Weather } from "./components/pages/weather";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/weather">
       <Routes>
         <Route path="/" element={<Weather />} />
       </Routes>
